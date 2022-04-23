@@ -35,6 +35,9 @@ class GameScene extends Phaser.Scene {
 		this.cards.create(350, 300, 'back');
 		this.cards.create(450, 300, 'back');
 		this.cards.create(550, 300, 'back');
+
+		this.cards = this.physics.add.staticGroup();
+
 	}
 		if (options_data.cards=3) {
 
@@ -51,9 +54,11 @@ class GameScene extends Phaser.Scene {
 		this.cards.create(550, 300, 'back');
 		this.cards.create(650, 300, 'back');
 		this.cards.create(750, 300, 'back');
-	};
-		
+
 		this.cards = this.physics.add.staticGroup();
+	}
+		
+		
 		
 		
 
