@@ -42,8 +42,8 @@ class GameScene extends Phaser.Scene {
 		this.add.image(350, 300, arraycards[1]);
 		this.add.image(450, 300, arraycards[2]);
 		this.add.image(550, 300, arraycards[3]);
-		this.add.image(550, 300, arraycards[4]);
-		this.add.image(550, 300, arraycards[5]);
+		this.add.image(650, 300, arraycards[4]);
+		this.add.image(750, 300, arraycards[5]);
 
 		this.cards.create(250, 300, 'back');
 		this.cards.create(350, 300, 'back');
