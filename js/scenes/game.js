@@ -31,7 +31,6 @@ class GameScene extends Phaser.Scene {
 		this.add.image(450, 300, arraycards[2]);
 		this.add.image(550, 300, arraycards[3]);
 
-		this.shuffle(this.arraycards);
 		this.cards = this.physics.add.staticGroup();
 		
 		this.cards.create(250, 300, 'back');
