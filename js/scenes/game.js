@@ -32,7 +32,7 @@ class GameScene extends Phaser.Scene {
 			this.cards = this.physics.add.staticGroup();
             this.cards.create(125*k+50,300,'back');
 
-        };
+        }
 		
 
 		/*
