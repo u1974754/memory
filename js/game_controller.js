@@ -8,13 +8,23 @@ var gameObj = function (){
 		if (sessionStorage.idPartida < arrayPartides.length)
 			l_partida = arrayPartides[sessionStorage.idPartida];
 	}
+
+	var options_data = {
+		cards:2, dificulty:"hard"
+	};
+	var load = function(){
+		var json = localStorage.getItem("config") || '{"cards":2,"dificulty":"hard"}';
+		options_data = JSON.parse(json);
+	};
+	load();
+
 	var vueInstance = new Vue({
 		el: "#game_id",
 		data: {
 			username:'',
 			current_card: [],
 			items: [],
-			num_cards: 2,
+			num_cards: options_data.cards,
 			bad_clicks: 0
 		},
 		created: function(){
