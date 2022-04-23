@@ -1,6 +1,7 @@
 body {
     background-color: aqua;
     }
+
 input[type=number]{
 	height: 3rem;
     font-size: 1.3rem;
@@ -12,7 +13,7 @@ input[type=number]{
 #title{
 	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
      font-size: 50px;
-     padding-left: 600px;
+     padding-left: 400px;
 }
 
 .menu-object{
