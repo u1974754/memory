@@ -25,11 +25,11 @@ class GameScene extends Phaser.Scene {
 		this.vector_cartas = arraycards.slice(0,cartas);
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
 
-		this.cards = this.physics.add.staticGroup();
+		
 		for(var k = 0; k < cartas; k++){
 
-            this.add.image(125*k+50,300,cartasvector[k]);
-			
+            this.add.image(125*k+50,300,vector_cartas[k]);
+			this.cards = this.physics.add.staticGroup();
             this.cards.create(125*k+50,300,'back');
 
         }
