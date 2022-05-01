@@ -9,7 +9,12 @@
 		<title> My first game - PhaserIO Game </title>
 	</head>
 	<body>
-		<div id = "game_area"> </div>
+		<div id = "game_area"> 
+			<div v-else>
+				<img v-for="(card, indx) in current_card" :src="card.texture" v-on:click="clickCard(indx)">
+				<button class="menu-object" v-on:click="save"> Save </button>
+			</div>
+		</div>
 	</body>
 </html>
 
