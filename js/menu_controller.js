@@ -14,10 +14,6 @@ function phaser_game2(){
 	loadpage("./html/phasergame2.html");
 }
 
-function games(){
-	loadpage("./html/games.html");
-}
-
 function exit (){
 	if (name != ""){
 		alert("Leaving " + name + "'s game");
