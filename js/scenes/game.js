@@ -39,24 +39,12 @@ class GameScene extends Phaser.Scene {
         }
 		
 
-		/*
-		this.add.image(250, 300, arraycards[0]);
-		this.add.image(350, 300, arraycards[1]);
-		this.add.image(450, 300, arraycards[2]);
-		this.add.image(550, 300, arraycards[3]);
-
-		this.cards = this.physics.add.staticGroup();
-
-		this.cards.create(250, 300, 'back');
-		this.cards.create(350, 300, 'back');
-		this.cards.create(450, 300, 'back');
-		this.cards.create(550, 300, 'back');
-		*/
+		
 		
 		
 		let i = 0;
 		this.cards.children.iterate((card)=>{
-			card.card_id = arraycards[i];
+			card.card_id = vectorcartas[i];
 			i++;
 			card.setInteractive();
 			card.on('pointerup', () => {
@@ -66,6 +54,14 @@ class GameScene extends Phaser.Scene {
 						this.score -= 20;
 						this.firstClick.enableBody(false, 0, 0, true, true);
 						card.enableBody(false, 0, 0, true, true);
+						this.cards.children.each(function(card) {
+							card.disableBody(true,true);
+						}, this);
+
+						this.cards.children.each(function(card) {
+							card.enableBody(false, 0,0, true, true);
+
+						}, this);
 						if (this.score <= 0){
 							alert("Game Over");
 							loadpage("../");
@@ -90,3 +86,16 @@ class GameScene extends Phaser.Scene {
 	update (){	}
 }
 
+/*
+		this.add.image(250, 300, arraycards[0]);
+		this.add.image(350, 300, arraycards[1]);
+		this.add.image(450, 300, arraycards[2]);
+		this.add.image(550, 300, arraycards[3]);
+
+		this.cards = this.physics.add.staticGroup();
+
+		this.cards.create(250, 300, 'back');
+		this.cards.create(350, 300, 'back');
+		this.cards.create(450, 300, 'back');
+		this.cards.create(550, 300, 'back');
+		*/
