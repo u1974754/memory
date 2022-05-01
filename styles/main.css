@@ -30,6 +30,11 @@ p{
 	text-align: center;
 }
 
+canvas {
+    display: block;
+    margin: auto;
+}
+
 button.menu-object:active{
 	font-size: 18px;
 	width: 275px;
