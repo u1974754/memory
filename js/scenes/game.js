@@ -61,14 +61,15 @@ class GameScene extends Phaser.Scene {
 						}, this);
 						if (this.score <= 0){
 							alert("Game Over");
-							loadpage("../");
+							//loadpage("../");
 						}
 					}
 					else{
 						this.correct++;
+
 						if (this.correct >= options_data.cards){
 							alert("You Win with " + this.score + " points.");
-							loadpage("../");
+							//loadpage("../");
 						}
 					}
 					this.firstClick = null;
