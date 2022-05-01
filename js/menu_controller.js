@@ -20,6 +20,9 @@ function exit (){
 	}
 	name = "";
 }
+function puntuaciones(){
+	loadpage("./html/puntuaciones.html");
+}
 
 function options(){
 	loadpage("./html/options.html");
