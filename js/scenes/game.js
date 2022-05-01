@@ -26,8 +26,7 @@ class GameScene extends Phaser.Scene {
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
 		
 		vectorcartas.sort(function(){return Math.random() - 0.5});
-		//vectorcartas.sort((a, b) => 0.5 - Math.random());
-
+		
 		this.cards = this.physics.add.staticGroup();
 
 		
@@ -39,8 +38,6 @@ class GameScene extends Phaser.Scene {
         }
 		
 
-		
-		
 		
 		let i = 0;
 		this.cards.children.iterate((card)=>{
@@ -86,16 +83,3 @@ class GameScene extends Phaser.Scene {
 	update (){	}
 }
 
-/*
-		this.add.image(250, 300, arraycards[0]);
-		this.add.image(350, 300, arraycards[1]);
-		this.add.image(450, 300, arraycards[2]);
-		this.add.image(550, 300, arraycards[3]);
-
-		this.cards = this.physics.add.staticGroup();
-
-		this.cards.create(250, 300, 'back');
-		this.cards.create(350, 300, 'back');
-		this.cards.create(450, 300, 'back');
-		this.cards.create(550, 300, 'back');
-		*/
