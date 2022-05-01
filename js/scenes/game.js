@@ -26,7 +26,7 @@ class GameScene extends Phaser.Scene {
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
 		
 		
-		//vectorcartas.sort((a, b) => 0.5 - Math.random());
+		vectorcartas.sort((a, b) => 0.5 - Math.random());
 
 		this.cards = this.physics.add.staticGroup();
 
@@ -66,6 +66,11 @@ class GameScene extends Phaser.Scene {
 						this.score -= 20;
 						this.firstClick.enableBody(false, 0, 0, true, true);
 						card.enableBody(false, 0, 0, true, true);
+
+						this.cards.children.each(function(card) {
+							card.disableBody(true,true);
+						}, this);
+
 						if (this.score <= 0){
 							alert("Game Over");
 							loadpage("../");
