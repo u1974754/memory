@@ -25,8 +25,8 @@ class GameScene extends Phaser.Scene {
 		let vectorcartas = parejas.slice(0, cartas);
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
 		
-		
-		vectorcartas.sort((a, b) => 0.5 - Math.random());
+		vectorcartas.sort(function(){return Math.random() - 0.5});
+		//vectorcartas.sort((a, b) => 0.5 - Math.random());
 
 		this.cards = this.physics.add.staticGroup();
 
@@ -66,11 +66,6 @@ class GameScene extends Phaser.Scene {
 						this.score -= 20;
 						this.firstClick.enableBody(false, 0, 0, true, true);
 						card.enableBody(false, 0, 0, true, true);
-
-						this.cards.children.each(function(card) {
-							card.disableBody(true,true);
-						}, this);
-
 						if (this.score <= 0){
 							alert("Game Over");
 							loadpage("../");
@@ -78,7 +73,7 @@ class GameScene extends Phaser.Scene {
 					}
 					else{
 						this.correct++;
-						if (this.correct >= 2){
+						if (this.correct >= options_data.cards){
 							alert("You Win with " + this.score + " points.");
 							loadpage("../");
 						}
