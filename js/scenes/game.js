@@ -18,12 +18,13 @@ class GameScene extends Phaser.Scene {
 	}
 	
     create (){	
-		let arraycards = ['cb', 'cb', 'co', 'co', 'sb', 'sb', 'so', 'so', 'tb', 'tb','to', 'to'];
+		let parejas = ['cb', 'cb', 'co', 'co', 'sb', 'sb', 'so', 'so', 'tb', 'tb','to', 'to'];
 		var json = localStorage.getItem("config") || '{"cards":2,"dificulty":"hard"}';
 		var options_data = JSON.parse(json);
-		var cartas = options_data.cards*2;
-		this.vector_cartas = arraycards.slice(0,cartas);
+		var cartas = options_data.cards;
+		var arraycards = parejas.slice(0, cartas * 2);
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
+		//arraycards.sort((a, b) => 0.5 - Math.random());
 
 		/*
 		for(var k = 0; k < cartas; k++){
