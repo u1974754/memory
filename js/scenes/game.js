@@ -25,7 +25,7 @@ class GameScene extends Phaser.Scene {
 		let vectorcartas = parejas.slice(0, cartas);
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
 		
-		vectorcartas.sort(function(){return Math.random() - 0.5});
+		//vectorcartas.sort(function(){return Math.random() - 0.5});
 		//vectorcartas.sort((a, b) => 0.5 - Math.random());
 
 		this.cards = this.physics.add.staticGroup();
