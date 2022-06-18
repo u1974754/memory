@@ -8,7 +8,8 @@ var gameObj = function (){
 		if (sessionStorage.idPartida < arrayPartides.length)
 			l_partida = arrayPartides[sessionStorage.idPartida];
 	}
-
+}
+	var options = function(){
 	var options_data = {
 		cards:2, dificulty:"hard"
 	};
@@ -17,6 +18,7 @@ var gameObj = function (){
 		options_data = JSON.parse(json);
 	};
 	load();
+}
 
 	var vueInstance = new Vue({
 		el: "#game_id",
@@ -33,6 +35,7 @@ var gameObj = function (){
 				this.current_card = l_partida.current_card;
 				this.items = l_partida.items;
 				this.num_cards = l_partida.num_cards;
+				this.dificulty = opciones_data.dificulty;
 				this.bad_clicks = l_partida.bad_clicks;
 			}
 			else{
@@ -40,13 +43,20 @@ var gameObj = function (){
 				this.items = items.slice(); // Copiem l'array
 				this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
 				this.items = this.items.slice(0, this.num_cards); // Agafem els primers numCards elements
+				this.dificulty = opciones_data.dificulty;
 				this.items = this.items.concat(this.items); // Dupliquem els elements
 				this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
 				for (var i = 0; i < this.items.length; i++){
 					this.current_card.push({done: false, texture: back});
 				}
 			}
-			sessionStorage.clear();
+			//sessionStorage.clear();
+
+		var milisegundos=1500;
+		const tiempo = 0;
+		if (this.dificulty=="hard") milisegundos=500;
+		else if (this.dificulty=="normal") milisegundos=1000;
+		tiempo = setTimeout(ocultar_cartas, milisegundos);
 		},
 		methods: {
 			clickCard: function(i){
@@ -78,7 +88,8 @@ var gameObj = function (){
 					current_card: this.current_card,
 					items: this.items,
 					num_cards: this.num_cards,
-					bad_clicks: this.bad_clicks
+					bad_clicks: this.bad_clicks,
+					puntuacion : this.score
 				}
 				let arrayPartides = [];
 				if(localStorage.partides){
@@ -124,7 +135,7 @@ var gameObj = function (){
 		}
 	});
 	return {};
-}();
+
 
 
 

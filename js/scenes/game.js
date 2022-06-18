@@ -22,14 +22,36 @@ class GameScene extends Phaser.Scene {
 		var json = localStorage.getItem("config") || '{"cards":2,"dificulty":"hard"}';
 		var options_data = JSON.parse(json);
 		var cartas = options_data.cards*2;
+		var dific = options_data.dificulty;
 		let vectorcartas = parejas.slice(0, cartas);
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
 		
-		vectorcartas.sort(function(){return Math.random() - 0.5});
+		
+
+		var tiempo_restante = null;
+		var puntos_perdidos = null;
+
+		if(dific == "hard"){
+			tiempo_restante = 1000;
+			puntos_perdidos = 20;
+
+		}
+		else if(dific == "normal"){
+			tiempo_restante = 1500;
+			puntos_perdidos = 15;
+
+		}
+		else{
+			tiempo_restante = 2000;
+			puntos_perdidos = 10;
+
+		}
+
 		
 		this.cards = this.physics.add.staticGroup();
 
-		
+		vectorcartas.sort(function(){return Math.random() - 0.5});
+
 		for(var k = 0; k < cartas; k++){
 
             this.add.image(125*k+50,300,vectorcartas[k]);
@@ -46,32 +68,68 @@ class GameScene extends Phaser.Scene {
 			card.setInteractive();
 			card.on('pointerup', () => {
 				card.disableBody(true,true);
+
 				if (this.firstClick){
 					if (this.firstClick.card_id !== card.card_id){
-						this.score -= 20;
+						this.score -= puntos_perdidos;
 						this.firstClick.enableBody(false, 0, 0, true, true);
 						card.enableBody(false, 0, 0, true, true);
-						this.cards.children.each(function(card) {
+
+						var error = [];
+						var cont = 0;
+						for(let j = 0; j < cartas*2; j++){
+							let cartas_error = this.add.image(125*j+50,300,vectorcartas[cont]);
+						
+							error.push(cartas_error);
+							cont++;
+							
+							
+						}
+						setTimeout(() =>{
+							for (let i = 0; i < cartas*2; i++){
+								error[i].destroy();
+							}
+						},tiempo_restante);
+
+						
+						/*this.cards.children.each(function(card) {
 							card.disableBody(true,true);
 						}, this);
 
 						this.cards.children.each(function(card) {
 							card.enableBody(false, 0,0, true, true);
 
-						}, this);
+						}, this);*/
+
 						if (this.score <= 0){
 							alert("Game Over");
-							//loadpage("../");
+							//loadpage("../index.html");
 						}
 					}
 					else{
 						this.correct++;
+						var contador_partidas = 0;
+						var arrayjugadores = []
 
 						if (this.correct >= options_data.cards){
 							alert("You Win with " + this.score + " points.");
-							//loadpage("../");
-						}
-					}
+							//loadpage("../index.html");
+							contador_partidas++;
+							this.data.set('puntos', this.score);
+						
+
+						var text = this.add.text(100, 100, '', { font: '64px Impact', fill: '#020202' });
+							text.setText([
+								'Tu puntuacion: ' + this.data.get('puntos')
+							]);
+							arrayjugadores = this.score;
+							localStorage.setItem('puntuacion', JSON.stringify(arrayjugadores));
+							var array = localStorage.getItem('myArray');
+							array = JSON.parse(arrayjugadores);
+
+					}}
+					
+
 					this.firstClick = null;
 				}
 				else{
