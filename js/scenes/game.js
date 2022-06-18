@@ -19,6 +19,7 @@ class GameScene extends Phaser.Scene {
 	
     create (){	
 		let parejas = ['cb', 'cb', 'co', 'co', 'sb', 'sb', 'so', 'so', 'tb', 'tb','to', 'to'];
+		//var rand = Math.floor(Math.random() * parejas.length);
 		var json = localStorage.getItem("config") || '{"cards":2,"dificulty":"hard"}';
 		var options_data = JSON.parse(json);
 		var cartas = options_data.cards*2;
@@ -54,8 +55,10 @@ class GameScene extends Phaser.Scene {
 
 		for(var k = 0; k < cartas; k++){
 
+			
             this.add.image(125*k+50,300,vectorcartas[k]);
             this.cards.create(125*k+50,300,'back');
+			
 
         }
 		

@@ -35,7 +35,7 @@ var gameObj = function (){
 				this.current_card = l_partida.current_card;
 				this.items = l_partida.items;
 				this.num_cards = l_partida.num_cards;
-				this.dificulty = opciones_data.dificulty;
+				this.dificulty = options_data.dificulty;
 				this.bad_clicks = l_partida.bad_clicks;
 			}
 			else{
@@ -43,7 +43,7 @@ var gameObj = function (){
 				this.items = items.slice(); // Copiem l'array
 				this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
 				this.items = this.items.slice(0, this.num_cards); // Agafem els primers numCards elements
-				this.dificulty = opciones_data.dificulty;
+				this.dificulty = options_data.dificulty;
 				this.items = this.items.concat(this.items); // Dupliquem els elements
 				this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
 				for (var i = 0; i < this.items.length; i++){
