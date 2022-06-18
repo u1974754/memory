@@ -2,6 +2,7 @@ var gameObj = function (){
 	const back = "../resources/back.png";
 	const items = ["../resources/cb.png","../resources/co.png","../resources/sb.png",
 	"../resources/so.png","../resources/tb.png","../resources/to.png"];
+	//const items = items[Math.floor(Math.itemsom() * items.length)];
 	let l_partida = null;
 	if (sessionStorage.idPartida && localStorage.partides){
 		let arrayPartides = JSON.parse(localStorage.partides);
@@ -41,11 +42,11 @@ var gameObj = function (){
 			else{
 				this.username = sessionStorage.getItem("username","unknown");
 				this.items = items.slice(); // Copiem l'array
-				this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
+				this.items.sort(function(){return Math.itemsom() - 0.5}); // Array aleatòria
 				this.items = this.items.slice(0, this.num_cards); // Agafem els primers numCards elements
 				this.dificulty = options_data.dificulty;
 				this.items = this.items.concat(this.items); // Dupliquem els elements
-				this.items.sort(function(){return Math.random() - 0.5}); // Array aleatòria
+				this.items.sort(function(){return Math.itemsom() - 0.5}); // Array aleatòria
 				for (var i = 0; i < this.items.length; i++){
 					this.current_card.push({done: false, texture: back});
 				}

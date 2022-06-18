@@ -28,6 +28,7 @@ class GameScene extends Phaser.Scene {
 		this.cameras.main.setBackgroundColor(0xBFFCFF);
 		
 		
+		
 
 		var tiempo_restante = null;
 		var puntos_perdidos = null;
@@ -106,7 +107,12 @@ class GameScene extends Phaser.Scene {
 
 						if (this.score <= 0){
 							alert("Game Over");
-							//loadpage("../index.html");
+							const againbuttton = this.add.text(100, 600, 'JUGAR DE NUEVO', { fill: '#f0f' });
+							againbuttton.style.fontSize = "50px";
+							againbuttton.setInteractive()
+      						.on('pointerdown', () => this.playagain());
+							
+							//playagain();
 						}
 					}
 					else{
@@ -116,14 +122,18 @@ class GameScene extends Phaser.Scene {
 
 						if (this.correct >= options_data.cards){
 							alert("You Win with " + this.score + " points.");
-							//loadpage("../index.html");
 							contador_partidas++;
 							this.data.set('puntos', this.score);
-						
 
-						var text = this.add.text(100, 100, '', { font: '64px Impact', fill: '#020202' });
+							//loadpage("../index.html");
+						
+							const againbuttton = this.add.text(100, 600, 'JUGAR DE NUEVO', { fill: '#f0f' });
+							againbuttton.style.fontSize = "50px";
+							againbuttton.setInteractive()
+      						.on('pointerdown', () => this.playagain());
+							var text = this.add.text(100, 100, '', { font: '64px Impact', fill: '#020202' });
 							text.setText([
-								'Tu puntuacion: ' + this.data.get('puntos')
+								'¡VICTORIA! Tu puntuacion: ' + this.data.get('puntos')
 							]);
 							arrayjugadores = this.score;
 							localStorage.setItem('puntuacion', JSON.stringify(arrayjugadores));
@@ -134,12 +144,17 @@ class GameScene extends Phaser.Scene {
 					
 
 					this.firstClick = null;
+					
 				}
 				else{
 					this.firstClick = card;
 				}
 			}, card);
 		});
+	}
+
+		playagain(){
+		loadpage("../html/phasergame.html");
 	}
 	
 	update (){	}
