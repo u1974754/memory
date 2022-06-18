@@ -1,10 +1,4 @@
-function start_game(){
-	name = prompt("User name");
-	
-	sessionStorage.setItem("username", name);
-	
-	loadpage("./html/game.html");
-}
+
 
 function phaser_game(){
 	loadpage("./html/phasergame.html");
@@ -14,14 +8,15 @@ function phaser_game2(){
 	loadpage("./html/phasergame2.html");
 }
 
+function puntuaciones(){
+	loadpage("./html/puntuaciones.html");
+}
+
 function exit (){
 	if (name != ""){
 		alert("Leaving " + name + "'s game");
 	}
 	name = "";
-}
-function puntuaciones(){
-	loadpage("./html/puntuaciones.html");
 }
 
 function options(){
