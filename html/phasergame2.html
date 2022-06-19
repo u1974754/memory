@@ -4,11 +4,30 @@
 		<link rel="stylesheet" href="../styles/main.css">
 		<script src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
 		<script src="../js/loader.js"></script>
-		<script src="../js/scenes/game2.js"></script>
+		<script src="../js/scenes/game.js"></script>
 		<script src="../js/phasergame_controller.js"></script>
 		<title> My first game - PhaserIO Game </title>
 	</head>
 	<body>
-		<div id = "game_area"> </div>
+		<div id = "game_area"> 
+
+			<p id="titulo">ADIVINA LAS PAREJAS DE CARTAS</p>
+			<!-- <div v-else>
+				<img v-for="(card, indx) in current_card" :src="card.texture" v-on:click="clickCard(indx)">
+				<button class="menu-object" v-on:click="save"> Save </button>
+			</div> -->
+		</div>
+		<button id="p_again" class="menu-object1">¡Suerte!</button>
+		<button onclick="volver()" id="m_principal" class="menu-object1">Menú Principal</button>
+
+		<script>
+			function volver(){
+			loadpage("../index.html");
+				}
+
+
+		</script>
+		
+
 	</body>
 </html>

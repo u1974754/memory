@@ -16,6 +16,47 @@ input[type=number]{
      text-align: center;
 }
 
+#titulo{
+	text-align: center;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+     font-size: 50px;
+}
+
+canvas {
+    display: block;
+    margin: auto;
+}
+
+#p_again {
+	margin-left: 500px;
+}
+
+.menu-object1{
+	border-radius: 15px;
+	display:inline-block;
+	margin-left: 100px;
+	margin-right: auto;
+	width: 400px;
+	height: 120px;
+	font-size: 50px;
+	font-family: fantasy;
+	margin-top: 10px;
+	background-color: blueviolet;
+}
+
+
+button.menu-object1:active{
+	font-size: 50px;
+	width: 380px;
+	height: 110px;
+}
+
+button.menu-object1:hover:not(:active){
+	font-size: 50px;
+	width: 420px;
+	height: 110px;
+}
+
 .menu-object{
 	display:block;
 	margin-left: auto;
@@ -26,14 +67,6 @@ input[type=number]{
 	margin-top: 10px;
 }
 
-p{
-	text-align: center;
-}
-
-canvas {
-    display: block;
-    margin: auto;
-}
 
 button.menu-object:active{
 	font-size: 18px;

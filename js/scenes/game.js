@@ -29,6 +29,7 @@ class GameScene extends Phaser.Scene {
 		
 		
 		
+		
 
 		var tiempo_restante = null;
 		var puntos_perdidos = null;
@@ -107,12 +108,9 @@ class GameScene extends Phaser.Scene {
 
 						if (this.score <= 0){
 							alert("Game Over");
-							const againbuttton = this.add.text(100, 600, 'JUGAR DE NUEVO', { fill: '#f0f' });
-							againbuttton.style.fontSize = "50px";
-							againbuttton.setInteractive()
-      						.on('pointerdown', () => this.playagain());
-							
-							//playagain();
+							document.getElementById("p_again").onclick = function (){
+								loadpage("../html/phasergame.html");
+							}
 						}
 					}
 					else{
@@ -124,16 +122,19 @@ class GameScene extends Phaser.Scene {
 							alert("You Win with " + this.score + " points.");
 							contador_partidas++;
 							this.data.set('puntos', this.score);
-
+							document.getElementById("p_again").innerHTML = "Play Again";
+							document.getElementById("p_again").onclick = function (){
+								loadpage("../html/phasergame.html");
+							}
 							//loadpage("../index.html");
-						
-							const againbuttton = this.add.text(100, 600, 'JUGAR DE NUEVO', { fill: '#f0f' });
-							againbuttton.style.fontSize = "50px";
+							/*var againbuttton = this.add.text(100, 600, 'JUGAR DE NUEVO', { fill: '#f0f' });
+							againbuttton.style.fontSize = "100px";
 							againbuttton.setInteractive()
-      						.on('pointerdown', () => this.playagain());
-							var text = this.add.text(100, 100, '', { font: '64px Impact', fill: '#020202' });
+      						.on('pointerdown', () => this.playagain());*/
+							var text = this.add.text(600, 80, '', { font: '64px Impact', fill: 'black' });
+							
 							text.setText([
-								'¡VICTORIA! Tu puntuacion: ' + this.data.get('puntos')
+								'Tu puntuacion: ' + this.data.get('puntos')
 							]);
 							arrayjugadores = this.score;
 							localStorage.setItem('puntuacion', JSON.stringify(arrayjugadores));
