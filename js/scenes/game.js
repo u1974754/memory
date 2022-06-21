@@ -25,7 +25,7 @@ class GameScene extends Phaser.Scene {
 		var cartas = options_data.cards*2;
 		var dific = options_data.dificulty;
 		let vectorcartas = parejas.slice(0, cartas);
-		this.cameras.main.setBackgroundColor(0xBFFCFF);
+		this.cameras.main.setBackgroundColor(0x006000);
 		
 		
 		
@@ -96,15 +96,6 @@ class GameScene extends Phaser.Scene {
 							}
 						},tiempo_restante);
 
-						
-						/*this.cards.children.each(function(card) {
-							card.disableBody(true,true);
-						}, this);
-
-						this.cards.children.each(function(card) {
-							card.enableBody(false, 0,0, true, true);
-
-						}, this);*/
 
 						if (this.score <= 0){
 							alert("Game Over");
@@ -119,18 +110,13 @@ class GameScene extends Phaser.Scene {
 						var arrayjugadores = []
 
 						if (this.correct >= options_data.cards){
-							alert("You Win with " + this.score + " points.");
 							contador_partidas++;
 							this.data.set('puntos', this.score);
-							document.getElementById("p_again").innerHTML = "Play Again";
+							document.getElementById("p_again").innerHTML = "Jugar De Nuevo";
 							document.getElementById("p_again").onclick = function (){
 								loadpage("../html/phasergame.html");
 							}
-							//loadpage("../index.html");
-							/*var againbuttton = this.add.text(100, 600, 'JUGAR DE NUEVO', { fill: '#f0f' });
-							againbuttton.style.fontSize = "100px";
-							againbuttton.setInteractive()
-      						.on('pointerdown', () => this.playagain());*/
+							
 							var text = this.add.text(600, 80, '', { font: '64px Impact', fill: 'black' });
 							
 							text.setText([
