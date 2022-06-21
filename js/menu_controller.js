@@ -19,6 +19,10 @@ function exit (){
 	name = "";
 }
 
+function exitmenu(){
+	loadpage("../index.html")
+}
+
 function options(){
 	loadpage("./html/options.html");
 }
